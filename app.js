@@ -111,21 +111,6 @@ app.get("/posts/:postId", function(req, res){
       })
     }
   })
-
-
-
-
-
-  // posts.forEach(function(post){
-  //   const storedTitle = _.lowerCase(post.title);
-
-  //   if(storedTitle == requestedTitle) {
-  //   res.render("post", {
-  //       displayTitle: post.title,
-  //       displayContent: post.content
-  //   });
-  //   };
-  // });
 });
 
 
