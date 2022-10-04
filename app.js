@@ -48,7 +48,7 @@ app.get("/", function (req, res) {
   res.render("home", {
     homePage: homeStartingContent,
     articlePost: posts,
-    
+
   });
 });
 });
@@ -85,10 +85,10 @@ app.post("/compose", function(req, res){
 
     if (!err){
  
-      res.redirect("/");
- 
+  res.redirect("/");
+
     }
- 
+
   });
 
   // posts.push(post);
@@ -101,12 +101,12 @@ app.get("/posts/:postName", function(req, res){
   
   posts.forEach(function(post){
     const storedTitle = _.lowerCase(post.title);
-    
+
     if(storedTitle == requestedTitle) {
-     res.render("post", {
+    res.render("post", {
         displayTitle: post.title,
         displayContent: post.content
-     });
+    });
     };
   });
 });
