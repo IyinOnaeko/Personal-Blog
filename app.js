@@ -44,11 +44,13 @@ const postSchema = {
 
 //get home page
 app.get("/", function (req, res) {
+  Post.find({}, function(err, posts){
   res.render("home", {
     homePage: homeStartingContent,
     articlePost: posts,
     
   });
+});
 });
 
 
@@ -79,13 +81,21 @@ app.post("/compose", function(req, res){
     title :  req.body.titleInput,
     content : req.body.bodyInput
   });
-  post.save();
+  post.save(function(err){
+
+    if (!err){
+ 
+      res.redirect("/");
+ 
+    }
+ 
+  });
 
   // posts.push(post);
-  res.redirect("/");
+  // res.redirect("/");
 })
 
-
+//getting individual posts 
 app.get("/posts/:postName", function(req, res){
   const requestedTitle = _.lowerCase(req.params.postName);
   
@@ -96,10 +106,10 @@ app.get("/posts/:postName", function(req, res){
      res.render("post", {
         displayTitle: post.title,
         displayContent: post.content
-     })
-    }
-  })
-})
+     });
+    };
+  });
+});
 
 
 app.listen(3000, function () {
