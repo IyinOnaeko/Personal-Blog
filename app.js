@@ -22,7 +22,15 @@ const app = express();
 app.set('view engine', 'ejs');
 
 //connect to mongoose and create blogDB
-mongoose.connect("mongodb://localhost:27017/blogDB", {useNewUrlParser: true});
+// mongoose.connect("mongodb://localhost:27017/blogDB", {useNewUrlParser: true});
+const link = process.env.URL
+// create a new database inside MongoDB
+const connectToDB = async () => {
+
+    await mongoose.connect(link, { useNewUrlParser: true });
+}
+
+connectToDB()
 
 //use bodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
