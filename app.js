@@ -84,15 +84,10 @@ app.post("/compose", function(req, res){
   post.save(function(err){
 
     if (!err){
- 
-  res.redirect("/");
-
+      res.redirect("/");
     }
 
   });
-
-  // posts.push(post);
-  // res.redirect("/");
 })
 
 //getting individual posts 
