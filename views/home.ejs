@@ -12,7 +12,8 @@
                 </h1>
                 <p>
                     <%=post.content.substring(0, 100) + "...."%>
-                    <a href="/posts/<%=post.title%>" >Read More</a>
+                    <!-- from the post collection (object), get the id -->
+                    <a href="/posts/<%=post._id%>">Read More</a>
                 </p>
                 <% }) %>
 
