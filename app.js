@@ -30,7 +30,7 @@ const connectToDB = async () => {
     await mongoose.connect(link, { useNewUrlParser: true });
 }
 
-connectToDB()
+connectToDB();
 
 //use bodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
